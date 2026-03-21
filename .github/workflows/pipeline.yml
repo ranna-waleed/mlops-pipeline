@@ -7,10 +7,7 @@ on:
   workflow_dispatch:  # Allows manual triggering from GitHub UI
 
 jobs:
-
-  # ─────────────────────────────────────────
   # JOB 1: VALIDATE
-  # ─────────────────────────────────────────
   validate:
     name: Train & Validate Model
     runs-on: ubuntu-latest
@@ -51,9 +48,7 @@ jobs:
           name: model-info
           path: model_info.txt
 
-  # ─────────────────────────────────────────
   # JOB 2: DEPLOY
-  # ─────────────────────────────────────────
   deploy:
     name: Check Threshold & Deploy
     runs-on: ubuntu-latest
