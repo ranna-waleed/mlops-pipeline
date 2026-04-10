@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  # JOB 1: LINTER , Lightweight Gate (runs always)
+  # JOB 1: LINTER, Lightweight Gate (runs always)
   linter:
     name: Lint & Syntax Check
     runs-on: ubuntu-latest
