@@ -13,7 +13,7 @@ mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 mlflow.set_experiment("iris-classifier")
 
 with mlflow.start_run() as run:
-    # Load data (DVC will pull this — for now we use sklearn's built-in)
+    # Load data
     X, y = load_iris(return_X_y=True)
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
@@ -23,10 +23,9 @@ with mlflow.start_run() as run:
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
-    # Evaluate
+    # Evaluate — real accuracy, no hardcoding
     preds = model.predict(X_test)
     accuracy = accuracy_score(y_test, preds)
-    accuracy = 0.70 
     print(f"Accuracy: {accuracy}")
 
     # Log to MLflow
